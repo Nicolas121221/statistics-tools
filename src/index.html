@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frequency table</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <header><h1>Frequency table</h1></header>
+    <main>
+      <label for="data-type">series type</label>
+      <select name="type" id="data-type">
+        <option value="0">Nominal</option>
+        <option value="1">Ordinal</option>
+        <option value="2">Interval</option>
+        <option value="3">ratio</option></select
+      ><br />
+      <label for="data">Insert the data(use comma ','): </label>
+      <input type="text" name="data" id="data" />
+
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+
+      <section>
+        <h3>Results</h3>
+        <p>Average ( <i>x̄</i> ) = <output id="average">0</output></p>
+        <p>Median ( <i>M</i> ) = <output id="median">0</output></p>
+        <p>Mode ( <i>Mo</i> ) = <output id="mode">0</output></p>
+      </section>
+    </main>
+  </body>
+  <script src="./js/index.js"></script>
+</html>

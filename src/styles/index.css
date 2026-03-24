@@ -1,0 +1,48 @@
+@import url(./reset.css);
+
+:root {
+    --background: #ebefff;
+    --foreground: #25232e;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #2d2a35;
+        --foreground: #ebefff;
+    }
+}
+
+body {
+    margin: 1rem;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+tbody>tr:first-child{
+    background-color: rgb(17, 16, 25);
+}
+
+tbody>tr:nth-child(odd)>td{
+    background: rgb(36, 34, 52);
+}
+
+th,
+td {
+    text-align: center;
+    width: 150px;
+    border: var(--foreground) 1px solid;
+}
+
+select, input {
+    display: block;
+}
+
+h3{
+    padding: 0;
+}
