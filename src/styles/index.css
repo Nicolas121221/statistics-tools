@@ -1,15 +1,11 @@
 @import url(./reset.css);
+@import url(./inputs.css);
+@import url(./results.css);
 
 :root {
-    --background: #ebefff;
-    --foreground: #25232e;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #2d2a35;
-        --foreground: #ebefff;
-    }
+    --background: hsl(223, 35%, 10%);
+    --foreground: hsl(227, 100%, 95%);
+    --primary-color: hsla(220, 65%, 50%, 0.76);
 }
 
 body {
@@ -18,18 +14,23 @@ body {
     color: var(--foreground);
 }
 
+h1 {
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px black, 0 0 10px var(--primary-color);
+}
+
 table {
     margin-top: 20px;
     margin-bottom: 20px;
     border-collapse: collapse;
 }
 
-tbody>tr:first-child{
-    background-color: rgb(17, 16, 25);
+tbody>tr:first-child {
+    background-color: var(--background);
 }
 
-tbody>tr:nth-child(odd)>td{
-    background: rgb(36, 34, 52);
+tbody>tr:nth-child(odd)>td {
+    background: var(--primary-color);
 }
 
 th,
@@ -37,12 +38,4 @@ td {
     text-align: center;
     width: 150px;
     border: var(--foreground) 1px solid;
-}
-
-select, input {
-    display: block;
-}
-
-h3{
-    padding: 0;
 }

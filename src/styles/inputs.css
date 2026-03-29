@@ -1,0 +1,25 @@
+select,
+textarea,
+input {
+    display: block;
+    background: var(--background);
+    color: var(--foreground);
+    margin: 0.3rem 0 0.6rem 0;
+    padding: 0.2rem;
+    width: 20rem;
+    outline: none;
+    border-radius: 0.1rem;
+    border: 2px solid hsla(220, 65%, 50%, 0.76);
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+    border: 2px solid  hsl(220, 50%, 70%)
+}
+
+textarea {
+    width: 30rem;
+    height: 10rem;
+    resize: vertical;
+}

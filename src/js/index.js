@@ -1,3 +1,5 @@
+import { average, median, mode } from "./statistics.js";
+
 const dataInput = document.querySelector("#data");
 const averageOutput = document.querySelector("output#average");
 const medianOutput = document.querySelector("output#median");
@@ -36,67 +38,24 @@ function createTable(values) {
     return;
   }
 
-  thead.innerHTML = "<td>Data</td>";
+  thead.innerHTML = "<tr><td>Position</td><td>Data</td></tr>";
   tbody.innerHTML = "";
-  values.forEach((value) => {
+  values.forEach((value, i) => {
     if (isNaN(value)) return;
 
     const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    td.innerText = value;
-    tr.appendChild(td);
+    const tdPos = document.createElement("td");
+    const tdData = document.createElement("td");
+
+    tdPos.innerText = i + 1;
+    tdData.innerText = value;
+
+    tr.appendChild(tdPos);
+    tr.appendChild(tdData);
     tbody.appendChild(tr);
   });
 }
 
 function validateTable(values) {
   return isNaN(values[0]) && values.length === 1;
-}
-
-function average(arr) {
-  const average =
-    arr.reduce((acc, cur) => {
-      if (isNaN(cur)) return acc;
-      return acc + cur;
-    }, 0) / arr.length;
-
-  return average;
-}
-
-function median(arr) {
-  const middlePoint = arr.length / 2;
-
-  if (arr.length === 1) return arr[0];
-  else if (arr.length % 2 === 0) {
-    const medianArray = [arr[arr.length / 2], arr[arr.length / 2 + 1]];
-    console.log(medianArray);
-    return average(medianArray);
-  } else {
-    return arr[(arr.length - 1) / 2];
-  }
-}
-
-function mode(arr) {
-  const sizes = new Map();
-
-  arr.forEach((element) => {
-    if (!sizes.has(element)) return sizes.set(element, 1);
-    sizes.set(element, sizes.get(element) + 1);
-  });
-
-  console.log(sizes)
-
-  let highestValue = 0;
-  let keys = [];
-  sizes.forEach((val, key) => {
-    if (val > highestValue) {
-      highestValue = val;
-      keys = [key];
-    } else if (highestValue === val) {
-      keys.push(key);
-    }
-  });
-
-  if(keys.length > 2) return "no mode"
-  return keys;
 }

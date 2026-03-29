@@ -15,16 +15,16 @@
         <option value="1">Ordinal</option>
         <option value="2">Interval</option>
         <option value="3">ratio</option></select
-      ><br />
+      >
       <label for="data">Insert the data(use comma ','): </label>
-      <input type="text" name="data" id="data" />
+      <textarea type="text" name="data" id="data"></textarea>
 
       <table>
         <thead></thead>
         <tbody></tbody>
       </table>
 
-      <section>
+      <section id="results">
         <h3>Results</h3>
         <p>Average ( <i>x̄</i> ) = <output id="average">0</output></p>
         <p>Median ( <i>M</i> ) = <output id="median">0</output></p>
@@ -32,5 +32,5 @@
       </section>
     </main>
   </body>
-  <script src="./js/index.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </html>
