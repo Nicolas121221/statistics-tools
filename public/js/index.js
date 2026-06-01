@@ -26,36 +26,35 @@ function formatInput(inputValue) {
   });
 
   return arr.sort((a, b) => a > b);
-}
 
-function createTable(values) {
-  const thead = document.querySelector("thead");
-  const tbody = document.querySelector("tbody");
+  function createTable(values) {
+    const thead = document.querySelector("thead");
+    const tbody = document.querySelector("tbody");
 
-  if (validateTable(values)) {
+    if (validateTable(values)) {
+      tbody.innerHTML = "";
+      thead.innerHTML = "";
+      return;
+    }
+
+    thead.innerHTML = "<tr><td>Position</td><td>Data</td></tr>";
     tbody.innerHTML = "";
-    thead.innerHTML = "";
-    return;
+    values.forEach((value, i) => {
+      if (isNaN(value)) return;
+
+      const tr = document.createElement("tr");
+      const tdPos = document.createElement("td");
+      const tdData = document.createElement("td");
+
+      tdPos.innerText = i + 1;
+      tdData.innerText = value;
+
+      tr.appendChild(tdPos);
+      tr.appendChild(tdData);
+      tbody.appendChild(tr);
+    });
   }
 
-  thead.innerHTML = "<tr><td>Position</td><td>Data</td></tr>";
-  tbody.innerHTML = "";
-  values.forEach((value, i) => {
-    if (isNaN(value)) return;
-
-    const tr = document.createElement("tr");
-    const tdPos = document.createElement("td");
-    const tdData = document.createElement("td");
-
-    tdPos.innerText = i + 1;
-    tdData.innerText = value;
-
-    tr.appendChild(tdPos);
-    tr.appendChild(tdData);
-    tbody.appendChild(tr);
-  });
-}
-
-function validateTable(values) {
+  function validateTable(values) {}
   return isNaN(values[0]) && values.length === 1;
 }

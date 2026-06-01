@@ -1,0 +1,34 @@
+{
+  "name": "statistic-tools-web",
+  "version": "0.0.1",
+  "description": "this project is a web version of my CLI tool that I created ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nicolas121221/statistics-tools"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": "Nícolas Guedes",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "dev": "tsx ./src/index.ts"
+  },
+  "devDependencies": {
+    "@eslint/css": "^1.1.0",
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.58.2",
+    "vitest": "^4.1.5"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
