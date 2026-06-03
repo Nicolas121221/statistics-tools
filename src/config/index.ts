@@ -1,21 +1,13 @@
 import dotenv from "dotenv";
 import { utils } from "../utils/index.js";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import type { ISettings } from "../interfaces/ISettings.js";
 
-export const port = !process.env["PORT"] ? 3000 : parseInt(process.env["PORT"]);
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-export const rootDir = join(__dirname, "..", "..");
-
-
-class Settings {
-  constructor() {
+export class Settings implements ISettings {
+  public configure(): void {
     this.initEnv();
   }
 
-  private initEnv() {
+  private initEnv(): void {
     dotenv.config({ quiet: !utils.isDevelopment() });
   }
 }
