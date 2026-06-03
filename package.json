@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc",
     "test": "vitest",
-    "dev": "tsx ./src/index.ts"
+    "dev": "tsx watch ./src/index.ts",
+    "lint": "eslint src"
   },
   "devDependencies": {
     "@eslint/css": "^1.1.0",
@@ -22,6 +23,7 @@
     "@types/node": "^25.6.0",
     "eslint": "^10.2.1",
     "globals": "^17.5.0",
+    "jiti": "^2.7.0",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.58.2",
