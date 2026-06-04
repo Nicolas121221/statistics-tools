@@ -16,7 +16,9 @@ body {
 
 h1 {
   margin-bottom: 1rem;
-  text-shadow: 0 0 5px black, 0 0 10px var(--primary-color);
+  text-shadow:
+    0 0 5px black,
+    0 0 10px var(--primary-color);
 }
 
 table {
@@ -25,11 +27,11 @@ table {
   border-collapse: collapse;
 }
 
-tbody>tr:first-child {
+tbody > tr:first-child {
   background-color: var(--background);
 }
 
-tbody>tr:nth-child(odd)>td {
+tbody > tr:nth-child(odd) > td {
   background: var(--primary-color);
 }
 
