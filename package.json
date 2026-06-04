@@ -14,7 +14,15 @@
     "build": "tsc",
     "test": "vitest",
     "dev": "tsx watch ./src/index.ts",
-    "lint": "eslint src"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css,md}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@eslint/css": "^1.1.0",
@@ -23,7 +31,10 @@
     "@types/node": "^25.6.0",
     "eslint": "^10.2.1",
     "globals": "^17.5.0",
+    "husky": "^9.1.7",
     "jiti": "^2.7.0",
+    "lint-staged": "^17.0.7",
+    "prettier": "^3.8.3",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.58.2",

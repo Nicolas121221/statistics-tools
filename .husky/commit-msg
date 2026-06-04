@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+MESSAGE=$(cat "$1")
+
+if ! echo "$MESSAGE" | grep -Eq "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?(!)?: "; then
+  echo "Invalid commit message."
+  echo "It should start with the conventional commits pattern"
+  echo "learn more at https://www.conventionalcommits.org/en/v1.0.0/"
+  exit 1
+fi

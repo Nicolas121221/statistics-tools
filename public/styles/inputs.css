@@ -15,7 +15,7 @@ input {
 select:focus,
 input:focus,
 textarea:focus {
-  border: 2px solid hsl(220, 50%, 70%)
+  border: 2px solid hsl(220, 50%, 70%);
 }
 
 textarea {

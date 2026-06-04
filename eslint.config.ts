@@ -14,9 +14,11 @@ export default defineConfig([
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     languageOptions: {
       parserOptions: {
         projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
