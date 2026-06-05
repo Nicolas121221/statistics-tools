@@ -1,6 +1,6 @@
-@import url(./reset.css);
-@import url(./inputs.css);
-@import url(./results.css);
+@import "./reset.css";
+@import "./inputs.css";
+@import "./results.css";
 
 :root {
   --background: hsl(223, 35%, 10%);
