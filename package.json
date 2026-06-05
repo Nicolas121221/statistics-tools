@@ -12,19 +12,26 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest run",
     "dev": "tsx watch ./src/index.ts",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,json,css,md}": [
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{json,md,css}": [
       "prettier --write"
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@eslint/css": "^1.1.0",
     "@eslint/js": "^10.0.1",
     "@types/express": "^5.0.6",
