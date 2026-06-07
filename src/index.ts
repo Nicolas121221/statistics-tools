@@ -1,8 +1,9 @@
-import express, { type Express } from "express";
+import express, { type Router, type Express } from "express";
 import type { IApplication } from "./interfaces/IApplication.js";
 import defaultSettings from "./config/index.js";
 import type { ISettings } from "./interfaces/ISettings.js";
 import { port, rootDir } from "./utils/index.js";
+import mainRouter from "./api/index.js";
 
 export class Application implements IApplication {
   public readonly app: Express = express();
@@ -13,7 +14,6 @@ export class Application implements IApplication {
 
     this.configure();
     this.addStaticFiles();
-    this.addRoutes();
   }
 
   private configure(): void {
@@ -27,14 +27,8 @@ export class Application implements IApplication {
     this.app.use(express.static(`${rootDir}/src/pages`));
   }
 
-  private addRoutes(): void {
-    this.app.get("/api/v1", (_req, res) => {
-      res.status(200).send({
-        statusCode: res.statusCode,
-        message: "api running",
-        version: "0.0.1",
-      });
-    });
+  public addRoutes(route: Router): void {
+    this.app.use(route)
   }
 
   public init(): void {
@@ -47,4 +41,6 @@ export class Application implements IApplication {
 }
 
 export const app = new Application(defaultSettings);
+
+app.addRoutes(mainRouter.router)
 app.init();
