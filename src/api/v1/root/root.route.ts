@@ -7,12 +7,22 @@ export class RootRouter implements IRouter {
 
   public constructor(path: string) {
     this.path = path;
-    this.router = express();
+    this.router = express.Router();
+
+    this.addMethods();
+  }
+
+  private addMethods(): void {
+    this.get();
   }
 
   public get(): void {
     this.router.get("/", (_req, res) => {
-      res.status(200).json({});
+      res.status(200).send({
+        statusCode: res.statusCode,
+        message: "api running",
+        version: "0.0.1",
+      });
     });
   }
 }
